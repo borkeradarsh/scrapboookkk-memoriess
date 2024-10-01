@@ -1,0 +1,113 @@
+.book {
+    width: 800px;
+    height: 600px;
+    margin: 40px auto;
+    perspective: 1000px;
+    border: 10px solid #000000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+}
+
+.cover {
+    width: 99.8%;
+    height: 80px;
+    background-color: #ff0000;
+    text-align: center;
+    padding: 1px;
+    border-bottom: 1px solid #ff0000;
+}
+
+.pages {
+    width: 100%;
+    height: calc(100% - 100px);
+    position: absolute;
+}
+
+.page {
+    width: 90%; /* reduce width to 90% */
+    height: 90%; /* reduce height to 90% */
+    position: absolute;
+    top: 5%; /* add top margin */
+    left: 5%; /* add left margin */
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    backface-visibility: hidden;
+    border: 3px solid #d50606;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 0px; /* add padding */
+    background-color: transparent; /* set background color to transparent */
+    display: flex; /* add this */
+    justify-content: center; /* add this */
+    align-items: center; /* add this */
+    flex-direction: column; /* add this */
+    display: none;
+}
+
+.page img {
+    width: 50%; /* set width to 100% */
+    height: 80%; /* set height to 100% */
+    object-fit: cover;
+    transform: translate(50px,15px);
+    padding: 10px;
+    border: 1px solid #000000; /* add border to image */
+}
+
+#page-1  img{
+    transform: translate(170px,60px);
+}
+
+#page-2  img{
+    transform: translate(170px,60px);
+}
+
+
+.text {
+    position: absolute; /* add this */
+    top: 20px; /* add this */
+    left: 20px; /* add this */
+    transform: translate(250px,-20px);
+    font-size: 24px; /* add this */
+    font-weight: bold; /* add this */
+    color: #000000; /* add this */
+    text-align: center; 
+}
+#page-2  .text {
+    transform: translate(200px,-20px);
+}
+
+
+.nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-60%,40%);
+}
+
+.prev, .next {
+    background-color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.prev {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-320px,-240px);
+  }
+  
+  .next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(300px,-240px);
+  }
+
+.prev:hover, .next:hover {
+    background-color: #ccc;
+}
+
+.page.flip {
+    transform: rotateY(180deg);
+}
